@@ -5,7 +5,7 @@ A RocketMod plugin so your police can do their job (For RP ofc)
 
 ### Permissions
 | Permission Name | Command Usage | Is Implemented? | Description |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- |
 | `ps.policeutilities.jailmanager` | `/createjail <JailName>` | Yes | Creates a jail |
 | `ps.policeutilities.jailmanager` | `/deletejail <JailName>` | No | Deletes a jail |
 | `ps.policeutilities.free` | `/free <Player>` | Yes | Frees a player from a jail |
