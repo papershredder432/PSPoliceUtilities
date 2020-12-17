@@ -14,8 +14,8 @@ A RocketMod plugin so your police can do their job (For RP ofc)
 | `ps.policeutilities.jailimmune` | N/A | No | Makes a player immune to being jailed |
 
 ### To Do
-[ ] Add DeleteJail command
-[ ] Add JailImmune
-[ ] Implement jailed players get out after specified time
-[ ] Implement optional Discord webhooks
-[ ] add more to this list
+- [ ] Add DeleteJail command
+- [ ] Add JailImmune
+- [ ] Implement jailed players get out after specified time
+- [ ] Implement optional Discord webhooks
+- [ ] add more to this list
