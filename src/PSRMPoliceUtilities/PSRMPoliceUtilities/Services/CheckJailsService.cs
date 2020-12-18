@@ -45,6 +45,8 @@ namespace PSRMPoliceUtilities.Services
 
                 if (!isFound) continue;
                 PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(players);
+                UnturnedPlayer.FromCSteamID((CSteamID) Convert.ToUInt64(players.PlayerId)).Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
+
             }
         }
     }
