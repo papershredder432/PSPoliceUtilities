@@ -30,15 +30,17 @@ namespace PSRMPoliceUtilities.Commands
             }
             
             JailTime jailedTime = new JailTime();
-            if (PSRMPoliceUtilities.Instance.JailTimeService.IsPlayerJailed(jailedPlayer.CSteamID.ToString(), out jailedTime))
+            if (!PSRMPoliceUtilities.Instance.JailTimeService.IsPlayerJailed(jailedPlayer.CSteamID.ToString(), out jailedTime)) return;
+            if (jailedTime == null)
             {
-                if (jailedTime == null) return;
-
-                ChatManager.serverSendMessage($"{unturnedPlayer.CharacterName} freed {jailedPlayer.CharacterName} from {jailedTime.JailName}", Color.blue, null, null, EChatMode.GLOBAL, null, true);
-
-                jailedPlayer.Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
-                PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(jailedTime);
+                ChatManager.serverSendMessage($"{jailedPlayer} is not in jail.", Color.red, null, unturnedPlayer.SteamPlayer(), EChatMode.SAY, null, true);
+                return;
             }
+
+            ChatManager.serverSendMessage($"{unturnedPlayer.CharacterName} freed {jailedPlayer.CharacterName} from {jailedTime.JailName}", Color.blue, null, null, EChatMode.GLOBAL, null, true);
+
+            jailedPlayer.Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
+            PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(jailedTime);
         }
 
         public AllowedCaller AllowedCaller => AllowedCaller.Player;

@@ -54,6 +54,9 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
+        <Reference Include="Uconomy, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\OneDrive\Desktop\Uconomy.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
@@ -62,6 +65,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Commands\Bail.cs" />
         <Compile Include="Commands\CreateJail.cs" />
         <Compile Include="Commands\DeleteJail.cs" />
         <Compile Include="Commands\Free.cs" />
