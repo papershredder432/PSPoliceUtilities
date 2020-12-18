@@ -23,3 +23,4 @@ Admins are immune to being jailed by default.
 - [ ] Implement optional Discord webhooks
 - [x] add more to this list
 - [x] Teleport players to the universal release position when /freed or on timeout
+- [ ] Add a paid bailout command and config option to set X credits for every Y second
