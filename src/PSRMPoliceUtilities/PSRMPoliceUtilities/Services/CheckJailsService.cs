@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using PSRMPoliceUtilities.Models;
+using PSRMPoliceUtilities.Storage;
 using UnityEngine;
 using Logger = Rocket.Core.Logging.Logger;
 
@@ -22,29 +23,29 @@ namespace PSRMPoliceUtilities.Services
             
         }
 
-        IEnumerator CheckJail()
+        private static IEnumerator CheckJail()
         {
-            JailTime jailedTime = new JailTime();
+            bool isFound = false;
+            JailTime players = new JailTime();
+            
             Logger.LogWarning(DateTime.UtcNow.ToString());
-            
-            yield return new WaitForSeconds(Convert.ToSingle(PSRMPoliceUtilities.Instance.Configuration.Instance.CheckInterval));
-            
-            foreach (var jailedPlayers in PSRMPoliceUtilities.Instance.JailTimes)
+
+            while (PSRMPoliceUtilities.Instance.IsPluginLoaded)
             {
-                if (PSRMPoliceUtilities.Instance.JailTimeService.IsPlayerJailed(jailedPlayers.Key, out jailedTime))
+                yield return new WaitForSeconds((float) Convert.ToDouble(PSRMPoliceUtilities.Instance.Configuration.Instance.CheckInterval));
+
+                Logger.LogWarning($"{PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Count} player(s) in jail!");
+
+                foreach (var jailedPlayers in PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Where(jailedPlayers => jailedPlayers.ExpireDate <= DateTime.UtcNow))
                 {
-                    if (jailedTime == null) yield break;
-                    var jail = PSRMPoliceUtilities.Instance.Configuration.Instance.Jails.FirstOrDefault(x => x.Name == jailedTime.JailName);
-                    
-                    if (jailedTime.ExpireDate >= DateTime.UtcNow)
-                    {
-                        PSRMPoliceUtilities.Instance.JailTimesDatabase.RemoveJailTime(jailedTime);
-                        Logger.LogWarning($"Removed {jailedTime.PlayerId} from {jailedTime.JailName}");
-                    }
+                    isFound = true;
+                    players = jailedPlayers;
+                    break;
                 }
+
+                if (!isFound) continue;
+                PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(players);
             }
-            
-            Logger.LogWarning(DateTime.UtcNow.ToString());
         }
     }
 }

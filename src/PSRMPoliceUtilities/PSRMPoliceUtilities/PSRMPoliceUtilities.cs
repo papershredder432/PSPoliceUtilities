@@ -25,10 +25,13 @@ namespace PSRMPoliceUtilities
         public CheckJailsService CheckJailsService { get; private set; }
 
         public Dictionary<string, DateTime> JailTimes { get; private set; }
+        
+        public bool IsPluginLoaded { get; private set; }
 
         protected override void Load()
         {
             Instance = this;
+            IsPluginLoaded = true;
 
             Logger.LogWarning($"{Name} {Assembly.GetName().Version} loaded! Made by papershredder432, join the support Discord here: https://discord.gg/ydjYVJ2");
 
@@ -86,6 +89,7 @@ namespace PSRMPoliceUtilities
         protected override void Unload()
         {
             Instance = null;
+            IsPluginLoaded = false;
             
             Logger.LogWarning($"{Name} {Assembly.GetName().Version} unloaded.");
 

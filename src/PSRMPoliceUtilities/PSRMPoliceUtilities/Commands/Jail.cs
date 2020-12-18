@@ -32,11 +32,11 @@ namespace PSRMPoliceUtilities.Commands
                 return;
             }
 
-            if (jailedPlayer.IsAdmin || jailedPlayer.HasPermission("ps.policeutilities.jailimmune"))
+            /* if (jailedPlayer.IsAdmin || jailedPlayer.HasPermission("ps.policeutilities.jailimmune"))
             {
                 ChatManager.serverSendMessage($"You cannot jail that player!", Color.red, null, unturnedPlayer.SteamPlayer(), EChatMode.SAY, null, true);
                 return;
-            }
+            } */
 
             if (jailName == null)
             {
