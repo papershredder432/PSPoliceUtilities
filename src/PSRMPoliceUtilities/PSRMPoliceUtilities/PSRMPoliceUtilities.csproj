@@ -67,6 +67,7 @@
         <Compile Include="Commands\Free.cs" />
         <Compile Include="Commands\IsJailed.cs" />
         <Compile Include="Commands\Jail.cs" />
+        <Compile Include="Commands\SetRelease.cs" />
         <Compile Include="Database\JailTimesDatabase.cs" />
         <Compile Include="Models\Jail.cs" />
         <Compile Include="Models\JailTime.cs" />

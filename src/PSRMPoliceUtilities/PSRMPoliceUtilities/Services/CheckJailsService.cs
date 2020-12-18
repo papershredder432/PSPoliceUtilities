@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using PSRMPoliceUtilities.Models;
 using PSRMPoliceUtilities.Storage;
+using Rocket.Unturned.Player;
+using Steamworks;
 using UnityEngine;
 using Logger = Rocket.Core.Logging.Logger;
 
@@ -44,9 +46,9 @@ namespace PSRMPoliceUtilities.Services
                 }
 
                 if (!isFound) continue;
+                isFound = false;
                 PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(players);
                 UnturnedPlayer.FromCSteamID((CSteamID) Convert.ToUInt64(players.PlayerId)).Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
-
             }
         }
     }
