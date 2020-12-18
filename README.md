@@ -10,6 +10,7 @@ Admins are immune to being jailed by default.
 | ------------- | ------------- | ------------- | ------------- |
 | `ps.policeutilities.jailmanager` | `/createjail <JailName>` | Yes | Creates a jail |
 | `ps.policeutilities.jailmanager` | `/deletejail <JailName>` | Yes | Deletes a jail |
+| `ps.policeutilities.jailmanager` | `/setrelease` | Yes | Sets the universal release position |
 | `ps.policeutilities.free` | `/free <Player>` | Yes | Frees a player from a jail |
 | `ps.policeutilities.isjailed` | `/isjailed <Player>` | Yes | Checks if a player is in jail |
 | `ps.policeutilities.jail` | `/jail <Player> <JailName> <LengthInSeconds> [Reason]` | Yes | Puts a specified player in jail for a chosen amount of seconds |
@@ -21,4 +22,4 @@ Admins are immune to being jailed by default.
 - [x] Implement jailed players get out after specified time
 - [ ] Implement optional Discord webhooks
 - [x] add more to this list
-- [ ] Teleport players to the universal release position when /freed or on timeout
+- [x] Teleport players to the universal release position when /freed or on timeout
