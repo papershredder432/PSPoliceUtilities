@@ -18,6 +18,7 @@ Admins are immune to being jailed by default.
 ### To Do
 - [x] Add DeleteJail command
 - [x] Add JailImmune
-- [ ] Implement jailed players get out after specified time
+- [x] Implement jailed players get out after specified time
 - [ ] Implement optional Discord webhooks
-- [ ] add more to this list
+~~- [ ] add more to this list~~
+- [ ] Teleport players to the universal release position when /freed or on timeout
