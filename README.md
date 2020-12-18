@@ -20,4 +20,4 @@ Admins are immune to being jailed by default.
 - [x] Add JailImmune
 - [ ] Implement jailed players get out after specified time
 - [ ] Implement optional Discord webhooks
-- [ ] add more to this list
+- [ ] Add more to this list
