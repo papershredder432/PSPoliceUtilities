@@ -63,15 +63,18 @@
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Commands\Bail.cs" />
-        <Compile Include="Commands\CreateJail.cs" />
-        <Compile Include="Commands\DeleteJail.cs" />
-        <Compile Include="Commands\Free.cs" />
-        <Compile Include="Commands\IsJailed.cs" />
-        <Compile Include="Commands\Jail.cs" />
-        <Compile Include="Commands\SetRelease.cs" />
+        <Compile Include="Commands\JailCommands\Bail.cs" />
+        <Compile Include="Commands\JailCommands\CreateJail.cs" />
+        <Compile Include="Commands\JailCommands\DeleteJail.cs" />
+        <Compile Include="Commands\JailCommands\Free.cs" />
+        <Compile Include="Commands\JailCommands\IsJailed.cs" />
+        <Compile Include="Commands\JailCommands\Jail.cs" />
+        <Compile Include="Commands\JailCommands\SetRelease.cs" />
         <Compile Include="Database\JailTimesDatabase.cs" />
         <Compile Include="Models\Jail.cs" />
         <Compile Include="Models\JailTime.cs" />
@@ -81,6 +84,9 @@
         <Compile Include="Services\CheckJailsService.cs" />
         <Compile Include="Services\JailTimeService.cs" />
         <Compile Include="Storage\DataStorage.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Commands\Impound" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

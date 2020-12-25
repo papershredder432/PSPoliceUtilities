@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Timers;
 using PSRMPoliceUtilities.Database;
 using PSRMPoliceUtilities.Models;
 using PSRMPoliceUtilities.Services;
@@ -44,21 +43,6 @@ namespace PSRMPoliceUtilities
 
             JailTimeService = gameObject.AddComponent<JailTimeService>();
             CheckJailsService = gameObject.AddComponent<CheckJailsService>();
-        }
-        
-        private void OnTimeElapsed(object sender, ElapsedEventArgs e)
-        {
-            JailTime jailTime = new JailTime();
-
-            if (jailTime.ExpireDate == e.SignalTime)
-            {
-                Instance.JailTimesDatabase.Data.Remove(jailTime);
-                Logger.LogWarning($"{jailTime.PlayerId}'s spent their time in jail, so they were released.");
-                UnturnedPlayer.FromCSteamID(new CSteamID(Convert.ToUInt64(jailTime.PlayerId))).Teleport(
-                    new Vector3(Instance.Configuration.Instance.RelaseLocation.x,
-                        Instance.Configuration.Instance.RelaseLocation.x,
-                        Instance.Configuration.Instance.RelaseLocation.z), 0);
-            }
         }
 
         private void OnPlayerUpdatePosition(UnturnedPlayer player, Vector3 position)

@@ -34,21 +34,18 @@ namespace PSRMPoliceUtilities.Services
             {
                 PlayerId = playerId,
                 JailName = jail.Name,
-                ExpireDate = DateTime.UtcNow.AddSeconds(time),
+                ExpireDate = DateTime.Now.AddSeconds(time),
                 Reason = reason
             };
             
             Database.AddJailTime(jailTime);
-            JailTimes[playerId] = DateTime.UtcNow.AddSeconds(time);
+            JailTimes[playerId] = DateTime.Now.AddSeconds(time);
         }
 
         public void RemoveJailedUser(string playerId)
         {
-            var jailTime = new JailTime()
-            {
-                PlayerId = playerId
-            };
-            
+            var jailTime = Database.Data.Single(x => x.PlayerId == playerId);
+
             Database.RemoveJailTime(jailTime);
         }
         

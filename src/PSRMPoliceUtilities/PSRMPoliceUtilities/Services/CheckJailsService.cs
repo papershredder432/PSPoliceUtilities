@@ -2,12 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using PSRMPoliceUtilities.Models;
-using PSRMPoliceUtilities.Storage;
 using Rocket.Unturned.Player;
+using SDG.Unturned;
 using Steamworks;
 using UnityEngine;
-using Logger = Rocket.Core.Logging.Logger;
 
 namespace PSRMPoliceUtilities.Services
 {
@@ -27,28 +25,19 @@ namespace PSRMPoliceUtilities.Services
 
         private static IEnumerator CheckJail()
         {
-            bool isFound = false;
-            JailTime players = new JailTime();
-            
-            Logger.LogWarning(DateTime.UtcNow.ToString());
-
             while (PSRMPoliceUtilities.Instance.IsPluginLoaded)
             {
                 yield return new WaitForSeconds((float) Convert.ToDouble(PSRMPoliceUtilities.Instance.Configuration.Instance.CheckInterval));
 
-                Logger.LogWarning($"{PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Count} player(s) in jail!");
+                //Logger.Log("Checking jails database...");
+                //Logger.Log($"{PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Count} player(s) found in jail.");
 
-                foreach (var jailedPlayers in PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Where(jailedPlayers => jailedPlayers.ExpireDate <= DateTime.UtcNow))
+                foreach (var jailedPlayer in PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.ToList().Where(jailedPlayer => jailedPlayer.ExpireDate <= DateTime.Now))
                 {
-                    isFound = true;
-                    players = jailedPlayers;
-                    break;
+                    PSRMPoliceUtilities.Instance.JailTimeService.RemoveJailedUser(jailedPlayer.PlayerId);
+                    ChatManager.serverSendMessage($"{UnturnedPlayer.FromCSteamID((CSteamID) Convert.ToUInt64(jailedPlayer.PlayerId)).CharacterName} was automatically released from {jailedPlayer.JailName}.", Color.blue, null, null, EChatMode.GLOBAL, null, true);
+                    UnturnedPlayer.FromCSteamID((CSteamID) Convert.ToUInt64(jailedPlayer.PlayerId)).Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
                 }
-
-                if (!isFound) continue;
-                isFound = false;
-                PSRMPoliceUtilities.Instance.JailTimesDatabase.Data.Remove(players);
-                UnturnedPlayer.FromCSteamID((CSteamID) Convert.ToUInt64(players.PlayerId)).Teleport(new Vector3(PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.x, PSRMPoliceUtilities.Instance.Configuration.Instance.RelaseLocation.z), 0);
             }
         }
     }
