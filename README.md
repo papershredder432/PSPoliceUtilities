@@ -27,5 +27,5 @@ Admins are immune to being jailed by default.
 - [x] add more to this list
 - [x] Teleport players to the universal release position when /freed or on timeout
 - [x] Add a paid bailout command and config option to set X credits for every Y second
-- [ ] ~~Find my will to live~~
+- [x] Find my will to live
 - [x] Fix the jail list, despite being freed from timer or command, the timer teleports you to release position
