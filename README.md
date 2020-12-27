@@ -1,7 +1,7 @@
 # PSRMPoliceUtilities
 A RocketMod plugin so your police can do their job (For RP ofc)
 
-Requires [Uconomy](https://github.com/RocketModPlugins/Uconomy/tree/legacy) to work, (Needed for /bail).
+Requires [Uconomy](https://github.com/RocketModPlugins/Uconomy/tree/legacy) to work. Needed for some commands.
 
 Admins are immune to being jailed by default.
 
