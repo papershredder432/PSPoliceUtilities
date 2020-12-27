@@ -18,12 +18,15 @@ namespace PSRMPoliceUtilities
     public class PSRMPoliceUtilities : RocketPlugin<PSRMPoliceUtilitiesConfiguration>
     {
         public static PSRMPoliceUtilities Instance { get; private set; }
+        
         public JailTimesDatabase JailTimesDatabase { get; private set; }
         public JailTimeService JailTimeService { get; private set; }
-        
         public CheckJailsService CheckJailsService { get; private set; }
-
         public Dictionary<string, DateTime> JailTimes { get; private set; }
+        
+        public FinesDatabase FinesDatabase { get; private set; }
+        public FinesService FinesService { get; private set; }
+        public Dictionary<string, DateTime> FineTimes { get; private set; }
         
         public bool IsPluginLoaded { get; private set; }
 
@@ -40,9 +43,14 @@ namespace PSRMPoliceUtilities
             JailTimes = new Dictionary<string, DateTime>();
             JailTimesDatabase = new JailTimesDatabase();
             JailTimesDatabase.Reload();
+            
+            FineTimes = new Dictionary<string, DateTime>();
+            FinesDatabase = new FinesDatabase();
+            FinesDatabase.Reload();
 
             JailTimeService = gameObject.AddComponent<JailTimeService>();
             CheckJailsService = gameObject.AddComponent<CheckJailsService>();
+            FinesService = gameObject.AddComponent<FinesService>();
         }
 
         private void OnPlayerUpdatePosition(UnturnedPlayer player, Vector3 position)
@@ -82,6 +90,7 @@ namespace PSRMPoliceUtilities
 
             Destroy(JailTimeService);
             Destroy(CheckJailsService);
+            Destroy(FinesService);
         }
 
         public override TranslationList DefaultTranslations => new TranslationList

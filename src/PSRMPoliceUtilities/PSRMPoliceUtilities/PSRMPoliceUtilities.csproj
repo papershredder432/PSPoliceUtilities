@@ -68,20 +68,27 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Commands\JailCommands\Bail.cs" />
-        <Compile Include="Commands\JailCommands\CreateJail.cs" />
-        <Compile Include="Commands\JailCommands\DeleteJail.cs" />
-        <Compile Include="Commands\JailCommands\Free.cs" />
-        <Compile Include="Commands\JailCommands\IsJailed.cs" />
-        <Compile Include="Commands\JailCommands\Jail.cs" />
-        <Compile Include="Commands\JailCommands\SetRelease.cs" />
+        <Compile Include="Commands\Fine\Fine.cs" />
+        <Compile Include="Commands\Fine\IsFined.cs" />
+        <Compile Include="Commands\Fine\PayFine.cs" />
+        <Compile Include="Commands\Fine\RemoveFine.cs" />
+        <Compile Include="Commands\Jail\Bail.cs" />
+        <Compile Include="Commands\Jail\CreateJail.cs" />
+        <Compile Include="Commands\Jail\DeleteJail.cs" />
+        <Compile Include="Commands\Jail\Free.cs" />
+        <Compile Include="Commands\Jail\IsJailed.cs" />
+        <Compile Include="Commands\Jail\Jail.cs" />
+        <Compile Include="Commands\Jail\SetRelease.cs" />
+        <Compile Include="Database\FinesDatabase.cs" />
         <Compile Include="Database\JailTimesDatabase.cs" />
+        <Compile Include="Models\Fine.cs" />
         <Compile Include="Models\Jail.cs" />
         <Compile Include="Models\JailTime.cs" />
         <Compile Include="PSRMPoliceUtilities.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="PSRMPoliceUtilitiesConfiguration.cs" />
         <Compile Include="Services\CheckJailsService.cs" />
+        <Compile Include="Services\FinesService.cs" />
         <Compile Include="Services\JailTimeService.cs" />
         <Compile Include="Storage\DataStorage.cs" />
     </ItemGroup>
