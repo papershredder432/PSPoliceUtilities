@@ -8,6 +8,10 @@ Admins are immune to being jailed by default.
 [![Github All Releases](https://img.shields.io/github/downloads/papershredder432/PSRMPoliceUtilities/total.svg)]()
 ![Discord](https://img.shields.io/discord/483456891498921994?label=Discord&logo=Discord)
 
+## Contributors
+[papershredder432]( https://github.com/papershredder432) <br>
+[Charterino](https://github.com/Charterino)
+
 ### Permissions
 | Permission Name | Command Usage | Is Implemented? | Description |
 | ------------- | ------------- | ------------- | ------------- |
