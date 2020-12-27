@@ -96,10 +96,7 @@
         <Compile Include="Services\FinesService.cs" />
         <Compile Include="Services\JailTimeService.cs" />
         <Compile Include="Storage\DataStorage.cs" />
-        <Compile Include="Storage\LiteDatabase.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Commands\Impound" />
+        <Compile Include="Storage\Database.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
