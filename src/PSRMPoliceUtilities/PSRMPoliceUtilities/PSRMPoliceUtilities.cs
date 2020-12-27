@@ -25,7 +25,6 @@ namespace PSRMPoliceUtilities
         public Dictionary<string, DateTime> JailTimes { get; private set; }
         
         public FinesDatabase FinesDatabase { get; private set; }
-        public FinesService FinesService { get; private set; }
         public Dictionary<string, DateTime> FineTimes { get; private set; }
         
         public bool IsPluginLoaded { get; private set; }
@@ -46,11 +45,9 @@ namespace PSRMPoliceUtilities
             
             FineTimes = new Dictionary<string, DateTime>();
             FinesDatabase = new FinesDatabase();
-            FinesDatabase.Reload();
 
             JailTimeService = gameObject.AddComponent<JailTimeService>();
             CheckJailsService = gameObject.AddComponent<CheckJailsService>();
-            FinesService = gameObject.AddComponent<FinesService>();
         }
 
         private void OnPlayerUpdatePosition(UnturnedPlayer player, Vector3 position)
@@ -90,12 +87,14 @@ namespace PSRMPoliceUtilities
 
             Destroy(JailTimeService);
             Destroy(CheckJailsService);
-            Destroy(FinesService);
         }
 
         public override TranslationList DefaultTranslations => new TranslationList
         {
-            
+            {"target_not_found", "Could not find the target specified."},
+            {"no_active_fines", "{0} has no active fines!"},
+            {"too_many_active_fines", "{0} has too many active fines. Showing only the first 4."},
+            {"active_fine", "{0} was fined on {1} for {2} {3} for {4}"},
         };
     }
 }

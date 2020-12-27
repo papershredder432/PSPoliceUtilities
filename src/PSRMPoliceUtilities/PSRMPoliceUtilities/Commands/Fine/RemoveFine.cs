@@ -10,11 +10,11 @@ namespace PSRMPoliceUtilities.Commands.Fine
             throw new System.NotImplementedException();
         }
 
-        public AllowedCaller AllowedCaller { get; }
-        public string Name { get; }
-        public string Help { get; }
-        public string Syntax { get; }
-        public List<string> Aliases { get; }
-        public List<string> Permissions { get; }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
+        public string Name => "removefine";
+        public string Help => "";
+        public string Syntax => "";
+        public List<string> Aliases => new List<string>();
+        public List<string> Permissions => new List<string>();
     }
 }

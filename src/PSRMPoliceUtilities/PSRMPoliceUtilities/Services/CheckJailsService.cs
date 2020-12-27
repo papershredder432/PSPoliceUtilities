@@ -27,6 +27,7 @@ namespace PSRMPoliceUtilities.Services
         {
             while (PSRMPoliceUtilities.Instance.IsPluginLoaded)
             {
+                //Who the fuck still uses coroutines?
                 yield return new WaitForSeconds((float) Convert.ToDouble(PSRMPoliceUtilities.Instance.Configuration.Instance.CheckInterval));
 
                 //Logger.Log("Checking jails database...");

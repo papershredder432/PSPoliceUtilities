@@ -1,40 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using LiteDB;
 using PSRMPoliceUtilities.Models;
 using PSRMPoliceUtilities.Storage;
 
 namespace PSRMPoliceUtilities.Database
 {
-    public class FinesDatabase
+    public class FinesDatabase : Database<Fine>
     {
-        private DataStorage<List<Fine>> DataStorage { get; set; }
-        
-        public List<Fine> Data { get; private set; }
-
-        public FinesDatabase()
-        {
-            DataStorage = new DataStorage<List<Fine>>(PSRMPoliceUtilities.Instance.Directory, "Fines.json");
-        }
-
-        public void Reload()
-        {
-            Data = DataStorage.Read();
-            if (Data == null)
-            {
-                Data = new List<Fine>();
-                DataStorage.Save(Data);
-            }
-        }
-
         public void AddFine(Fine fine)
         {
-            Data.Add(fine);
-            DataStorage.Save(Data);
+            Collection.Insert(fine);
         }
 
         public void RemoveFine(Fine fine)
         {
-            Data.Remove(fine);
-            DataStorage.Save(Data);
+            Collection.Delete(fine.FineID);
+        }
+
+        public List<Fine> FindActiveFines(string id)
+        {
+            return Collection.Find(x => x.Active && x.PlayerId == id).ToList();
+        }
+
+        public List<Fine> FindInactiveFines(string id)
+        {
+            return Collection.Find(x => !x.Active && x.PlayerId == id).ToList();
+        }
+
+        public void FinePlayer(string playerid, decimal amount, string reason = "")
+        {
+            Collection.Insert(new Fine()
+            {
+                PlayerId = playerid,
+                Active = true,
+                FinedAmount = amount,
+                FinedDate = DateTime.Now,
+                FineID = ObjectId.NewObjectId(),
+                Reason = reason
+            });
         }
     }
 }

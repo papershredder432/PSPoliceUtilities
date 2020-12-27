@@ -17,8 +17,7 @@ namespace PSRMPoliceUtilities.Commands.Fine
             UnturnedPlayer unturnedPlayer = (UnturnedPlayer) caller;
 
             var finedPlayer = UnturnedPlayer.FromName(command[0]);
-            var fineAmount = Convert.ToInt32(command[1]);
-            var fineReason = string.Join(" ", command[2]);
+            var fineReason = string.Join(" ", command.Skip(2));
             
             if (command.Length <= 1)
             {
@@ -38,7 +37,7 @@ namespace PSRMPoliceUtilities.Commands.Fine
                 return;
             }
 
-            if (fineAmount <= 1)
+            if (!Decimal.TryParse(command[1], out var fineAmount))
             {
                 ChatManager.serverSendMessage($"Invalid amount to fine.", Color.red, null, unturnedPlayer.SteamPlayer(), EChatMode.SAY, null, true);
                 return;
@@ -49,7 +48,7 @@ namespace PSRMPoliceUtilities.Commands.Fine
                 fineReason = "N/A";
             }
 
-            PSRMPoliceUtilities.Instance.FinesService.RegisterFine(finedPlayer.CSteamID.ToString(), fineAmount, fineReason);
+            PSRMPoliceUtilities.Instance.FinesDatabase.FinePlayer(finedPlayer.CSteamID.ToString(), fineAmount, fineReason);
             ChatManager.serverSendMessage($"{unturnedPlayer.CharacterName} fined {finedPlayer.CharacterName} for {fineReason} for {fineAmount} {Uconomy.Instance.Configuration.Instance.MoneyName}(s)!", Color.yellow, null, null, EChatMode.GLOBAL, null, true);
         }
 
