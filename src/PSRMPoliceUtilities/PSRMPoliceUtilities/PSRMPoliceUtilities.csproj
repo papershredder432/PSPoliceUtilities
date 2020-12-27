@@ -38,6 +38,10 @@
         <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\libs\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
+        <Reference Include="LiteDB, Version=5.0.9.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27">
+          <HintPath>..\packages\LiteDB.5.0.9\lib\net45\LiteDB.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
           <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
         </Reference>
@@ -53,6 +57,7 @@
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Runtime" />
         <Reference Include="System.Xml" />
         <Reference Include="Uconomy, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\libs\Uconomy.dll</HintPath>
@@ -91,9 +96,13 @@
         <Compile Include="Services\FinesService.cs" />
         <Compile Include="Services\JailTimeService.cs" />
         <Compile Include="Storage\DataStorage.cs" />
+        <Compile Include="Storage\LiteDatabase.cs" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Commands\Impound" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
