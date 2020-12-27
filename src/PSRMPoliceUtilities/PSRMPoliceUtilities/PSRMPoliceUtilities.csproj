@@ -33,38 +33,38 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\Assembly-CSharp.dll</HintPath>
+          <HintPath>..\libs\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+          <HintPath>..\libs\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
         <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\Newtonsoft.Json.dll</HintPath>
+          <HintPath>..\libs\Newtonsoft.Json.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.API, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Extras\Rocket.Unturned\Rocket.API.dll</HintPath>
+        <Reference Include="Rocket.API, Version=4.9.3.3, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\libs\Rocket.API.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.Core, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Extras\Rocket.Unturned\Rocket.Core.dll</HintPath>
+        <Reference Include="Rocket.Core, Version=4.9.3.3, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\libs\Rocket.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Rocket.Unturned, Version=4.9.3.6, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Extras\Rocket.Unturned\Rocket.Unturned.dll</HintPath>
+        <Reference Include="Rocket.Unturned, Version=4.9.3.3, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\libs\Rocket.Unturned.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
         <Reference Include="Uconomy, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\OneDrive\Desktop\Uconomy.dll</HintPath>
+          <HintPath>..\libs\Uconomy.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.dll</HintPath>
+          <HintPath>..\libs\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>..\libs\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Unturned\Unturned_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+          <HintPath>..\libs\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
