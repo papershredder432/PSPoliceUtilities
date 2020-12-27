@@ -5,7 +5,8 @@ Requires [Uconomy](https://github.com/RocketModPlugins/Uconomy/tree/legacy) to w
 
 Admins are immune to being jailed by default.
 
-## [Support Discord](https://discord.gg/ydjYVJ2)
+[![Github All Releases](https://img.shields.io/github/downloads/papershredder432/PSRMPoliceUtilities/total.svg)]()
+![Discord](https://img.shields.io/discord/483456891498921994?label=Discord&logo=Discord)
 
 ### Permissions
 | Permission Name | Command Usage | Is Implemented? | Description |
