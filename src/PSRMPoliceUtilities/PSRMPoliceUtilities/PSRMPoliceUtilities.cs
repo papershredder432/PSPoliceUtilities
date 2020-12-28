@@ -94,7 +94,7 @@ namespace PSRMPoliceUtilities
             {"target_not_found", "Could not find the target specified."},
             {"no_active_fines", "{0} has no active fines!"},
             {"too_many_active_fines", "{0} has too many active fines. Showing only the first 4."},
-            {"active_fine", "{0} was fined on {1} for {2} {3} for {4}"},
+            {"active_fine", "{0} was fined on {1} for {2} {3} for {4} [{5}]"},
         };
     }
 }

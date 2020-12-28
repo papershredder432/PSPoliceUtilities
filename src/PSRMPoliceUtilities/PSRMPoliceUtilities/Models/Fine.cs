@@ -16,5 +16,7 @@ namespace PSRMPoliceUtilities.Models
         public string Reason { get; set; }
 
         public bool Active { get; set; }
+        
+        public int CaseID { get; set; }
     }
 }

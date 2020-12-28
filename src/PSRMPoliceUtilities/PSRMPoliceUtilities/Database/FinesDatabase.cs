@@ -14,9 +14,11 @@ namespace PSRMPoliceUtilities.Database
             Collection.Insert(fine);
         }
 
-        public void RemoveFine(Fine fine)
+        public void DeactivateFine(Fine fine)
         {
-            Collection.Delete(fine.FineID);
+            fine.Active = false;
+
+            Collection.Update(fine);
         }
 
         public List<Fine> FindActiveFines(string id)
@@ -38,7 +40,8 @@ namespace PSRMPoliceUtilities.Database
                 FinedAmount = amount,
                 FinedDate = DateTime.Now,
                 FineID = ObjectId.NewObjectId(),
-                Reason = reason
+                Reason = reason,
+                CaseID = Collection.Count() + 1
             });
         }
     }

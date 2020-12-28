@@ -37,15 +37,15 @@ namespace PSRMPoliceUtilities.Commands.Fine
             for (int i = 0; i < Math.Min(4, activeFines.Count); i++)
             {
                 var fine = activeFines[i];
-                UnturnedChat.Say(player, PSRMPoliceUtilities.Instance.Translate("active_fine", target.CharacterName, fine.FinedDate, fine.FinedAmount, Uconomy.Instance.Configuration.Instance.MoneyName, fine.Reason));
+                UnturnedChat.Say(player, PSRMPoliceUtilities.Instance.Translate("active_fine", target.CharacterName, fine.FinedDate, fine.FinedAmount, Uconomy.Instance.Configuration.Instance.MoneyName, fine.Reason, fine.CaseID));
             }
         }
 
         public AllowedCaller AllowedCaller => AllowedCaller.Player;
         public string Name => "activefines";
-        public string Help => "";
-        public string Syntax => "";
+        public string Help => "Shows the active fines that you have.";
+        public string Syntax => "/activefines";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string>();
+        public List<string> Permissions => new List<string> { "ps.policeutilities.activefines" };
     }
 }

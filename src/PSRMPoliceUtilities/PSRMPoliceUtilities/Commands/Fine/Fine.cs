@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using fr34kyn01535.Uconomy;
-using PSRMPoliceUtilities.Models;
 using Rocket.API;
 using Rocket.Unturned.Player;
 using SDG.Unturned;
@@ -43,13 +42,14 @@ namespace PSRMPoliceUtilities.Commands.Fine
                 return;
             }
 
-            if (fineReason.Length < 1)
+            if (fineReason.Length <= 1)
             {
                 fineReason = "N/A";
             }
 
             PSRMPoliceUtilities.Instance.FinesDatabase.FinePlayer(finedPlayer.CSteamID.ToString(), fineAmount, fineReason);
-            ChatManager.serverSendMessage($"{unturnedPlayer.CharacterName} fined {finedPlayer.CharacterName} for {fineReason} for {fineAmount} {Uconomy.Instance.Configuration.Instance.MoneyName}(s)!", Color.yellow, null, null, EChatMode.GLOBAL, null, true);
+            ChatManager.serverSendMessage($"[Case {PSRMPoliceUtilities.Instance.FinesDatabase.Collection.Count()}] {unturnedPlayer.CharacterName} for {fineAmount} {Uconomy.Instance.Configuration.Instance.MoneyName}.", Color.red, null, unturnedPlayer.SteamPlayer(), EChatMode.SAY, null, true);
+            ChatManager.serverSendMessage($"{unturnedPlayer.CharacterName} fined {finedPlayer.CharacterName} for {fineReason} for {fineAmount} {Uconomy.Instance.Configuration.Instance.MoneyName}!", Color.yellow, null, null, EChatMode.GLOBAL, null, true);
         }
 
         public AllowedCaller AllowedCaller => AllowedCaller.Player;
