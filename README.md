@@ -25,8 +25,8 @@ Admins are immune to being jailed by default.
 | `ps.policeutilities.bail` | `/bail [Player]` | Yes | Use your Uconomy balance to bail a player out of jail |
 | `ps.policeutilities.activefines` | `/activefines` | Yes | Shows the active fines you have |
 | `ps.policeutilities.fine` | `/fine <Player> <Amount> [Reason]` | Yes | Fines a player |
-| `ps.policeutilities.payfine` | `/payfine <FineID>` | No | Pays off a fine |
-| `ps.policeutilities.removefine` | `/deactivate <FineID>` | No | Deactives a fine |
+| `ps.policeutilities.payfine` | `/payfine <FineID>` | Yes | Pays off a fine |
+| `ps.policeutilities.removefine` | `/deactivate <FineID>` | Yes | Deactives a fine |
 | `ps.policeutilities.fineimmune` | N/A | Yes | Makes a player immune to being fined |
 
 
