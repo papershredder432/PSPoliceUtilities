@@ -23,6 +23,11 @@ Admins are immune to being jailed by default.
 | `ps.policeutilities.jail` | `/jail <Player> <JailName> <LengthInSeconds> [Reason]` | Yes | Puts a specified player in jail for a chosen amount of seconds |
 | `ps.policeutilities.jailimmune` | N/A | Yes | Makes a player immune to being jailed |
 | `ps.policeutilities.bail` | `/bail [Player]` | Yes | Use your Uconomy balance to bail a player out of jail |
+| `ps.policeutilities.activefines` | `/activefines` | Yes | Shows the active fines you have |
+| `ps.policeutilities.fine` | `/fine <Player> <Amount> [Reason]` | Yes | Fines a player |
+| `ps.policeutilities.payfine` | `/payfine <FineID>` | No | Pays off a fine |
+| `ps.policeutilities.removefine` | `/deactivate <FineID>` | No | Deactives a fine |
+
 
 ### To Do
 - [x] Add DeleteJail command
